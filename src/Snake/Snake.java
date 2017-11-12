@@ -9,8 +9,7 @@ public class Snake {
 	private static BoardController	controller;
 	private static KeyBuffer		buffer;
 	private static int xPos, yPos;
-	//int snakeLength = 1;
-	
+	int snakeLength = 1;
 	
 	public Snake(){
 		controller = BoardController.getBoardController();
@@ -23,37 +22,54 @@ public class Snake {
 				if (event.getID() == java.awt.event.KeyEvent.KEY_PRESSED){
 					switch (event.getKeyCode()){
 					case java.awt.event.KeyEvent.VK_UP:
-						if (yPos > 1){
+						if (yPos > 0){
 							yPos--;
+						}
+						else if (yPos <= 0){
+							yPos = 5;
+							xPos = 5;
 						}
 						break;
 					case java.awt.event.KeyEvent.VK_DOWN:
-						if (yPos < 10){
+						if (yPos < 11){
 							yPos++;
+						}
+						else if (yPos >= 11){
+							yPos = 5;
+							xPos = 5;
 						}
 						break;
 					case java.awt.event.KeyEvent.VK_LEFT:
-						if (xPos > 1){
+						if (xPos > 0){
 							xPos--;
+						}
+						else if (xPos <= 0){
+							yPos = 5;
+							xPos = 5;
 						}
 						break;
 					case java.awt.event.KeyEvent.VK_RIGHT:
-						if (xPos < 10){
+						if (xPos < 11){
 							xPos++;
+						}
+						else if (xPos >= 11){
+							yPos = 5;
+							xPos = 5;
 						}
 						break;
 					default:
 					}
 				}
 			}
-			controller.resetSnake();
+			resetSnake();
 			controller.setColor(xPos, yPos, 0, 127, 0);
 			controller.updateLedStripe();
 		}
 	}
 	public void resetSnake() {
 		controller.resetColors();
-		int i = 0;
+		snakeLength = 1;
+		/*int i = 0;
 		while (i <= 11) {
 			controller.setColor(1, i, 127, 0, 0);
 			i++;
@@ -78,7 +94,7 @@ public class Snake {
 		while (i <= 10) {
 			controller.setColor(i, 11, 127, 0, 0);
 			i++;
-		}
+		}*/
 	}
 
 }

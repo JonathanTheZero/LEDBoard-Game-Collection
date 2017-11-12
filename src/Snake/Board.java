@@ -2,6 +2,7 @@ package Snake;
 
 import ledControl.BoardController;
 import Snake.Snake;
+import Snake.Food;
 
 public class Board {
 	
@@ -9,7 +10,7 @@ public class Board {
 
 	public static void main(String[] args) {
 			
-		int i = 0;
+		/*int i = 0;
 		while (i <= 11) {
 			controller.setColor(1, i, 127, 0, 0);
 			i++;
@@ -35,9 +36,12 @@ public class Board {
 			controller.setColor(i, 11, 127, 0, 0);
 			i++;
 		}
-		controller.updateLedStripe();
-		controller.sleep(2000);
+		controller.updateLedStripe();*/
+		
+		controller.resetColors();
+		controller.sleep(1000);
 		Snake snake = new Snake();
+		Food food = new Food();
 		controller.updateLedStripe();
 	}
 
