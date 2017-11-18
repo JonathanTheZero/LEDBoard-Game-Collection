@@ -2,8 +2,8 @@ package Snake;
 
 import ledControl.BoardController;
 import ledControl.gui.KeyBuffer;
-import Snake.Snake;
-import Snake.Food;
+
+import Snake.ScreenOne;
 
 import java.awt.event.KeyEvent;
 
@@ -12,6 +12,8 @@ public class Board {
 	
 	static BoardController controller = BoardController.getBoardController();
 	public static KeyBuffer		buffer;
+	public static boolean startScreen = true;
+	
 	public static void main(String[] args) {
 		buffer = controller.getKeyBuffer();
 
@@ -54,7 +56,7 @@ public class Board {
 	public static void startScreen(){
 		mode();
 		controller.updateLedStripe();
-		while (true){
+		while (startScreen = true){
 			KeyEvent event = buffer.pop();
 			if (event != null){
 				if (event.getID() == java.awt.event.KeyEvent.KEY_PRESSED){
@@ -65,6 +67,7 @@ public class Board {
 							controller.sleep(500);
 							screenOne();
 							controller.updateLedStripe();
+							startScreen = false;
 							break;
 						default:
 					}
@@ -73,32 +76,7 @@ public class Board {
 		}
 	}
 	public static void screenOne(){
-		int i = 0;
-		while (i <= 11) {
-			controller.setColor(0, i, 127, 0, 0);
-			i++;
-		}
-		//controller.updateLedStripe();
-		//controller.sleep(1000);
-		i = 0;
-		while (i <= 10) {
-			controller.setColor(i, 0, 127, 0, 0);
-			i++;
-		}
-		//controller.updateLedStripe();
-		//controller.sleep(1000);
-		i = 0;
-		while (i <= 11) {
-			controller.setColor(11, i, 127, 0, 0);
-			i++;
-		}
-		//controller.updateLedStripe();
-		//controller.sleep(1000);
-		i = 0;
-		while (i <= 10) {
-			controller.setColor(i, 11, 127, 0, 0);
-			i++;
-		}
+		ScreenOne screenOne = new ScreenOne();
 	}
 	
 	public static void mode(){
