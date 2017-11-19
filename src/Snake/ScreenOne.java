@@ -2,7 +2,6 @@ package Snake;
 
 import ledControl.BoardController;
 import ledControl.gui.KeyBuffer;
-import Snake.SnakeScreenOne;
 import Snake.Food;
 
 import java.awt.event.KeyEvent;
@@ -40,16 +39,5 @@ public class ScreenOne {
 			controller.setColor(i, 11, 127, 0, 0);
 			i++;
 		}
-		
-		
-		//Food food = new Food();
-		SnakeScreenOne snake = new SnakeScreenOne();
-		
-		Random generator = new Random(); 
-		
-		int xPos = generator.nextInt(11) + 1;
-		int yPos = generator.nextInt(11) + 1;
-		
-		controller.setColor(xPos, yPos, 0, 0, 127);
 	}
 }

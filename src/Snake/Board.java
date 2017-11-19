@@ -16,43 +16,11 @@ public class Board {
 	
 	public static void main(String[] args) {
 		buffer = controller.getKeyBuffer();
-
-			
-		/*int i = 0;
-		while (i <= 11) {
-			controller.setColor(1, i, 127, 0, 0);
-			i++;
-		}
-		//controller.updateLedStripe();
-		//controller.sleep(1000);
-		i = 2;
-		while (i <= 10) {
-			controller.setColor(i, 0, 127, 0, 0);
-			i++;
-		}
-		//controller.updateLedStripe();
-		//controller.sleep(1000);
-		i = 0;
-		while (i <= 11) {
-			controller.setColor(11, i, 127, 0, 0);
-			i++;
-		}
-		//controller.updateLedStripe();
-		//controller.sleep(1000);
-		i = 2;
-		while (i <= 10) {
-			controller.setColor(i, 11, 127, 0, 0);
-			i++;
-		}
-		controller.updateLedStripe();*/
-		
-		/*controller.resetColors();
-		controller.sleep(1000);
-		Snake snake = new Snake();
-		Food food = new Food();
-		controller.updateLedStripe();*/
 		startScreen();
 	}
+	
+	
+	
 	public static void startScreen(){
 		mode();
 		controller.updateLedStripe();
@@ -69,15 +37,34 @@ public class Board {
 							controller.updateLedStripe();
 							startScreen = false;
 							break;
+						case java.awt.event.KeyEvent.VK_2:
+							controller.resetColors();
+							controller.updateLedStripe();
+							controller.sleep(500);
+							screenTwo();
+							controller.updateLedStripe();
+							startScreen = false;
+							break;
 						default:
 					}
 				}
 			}
 		}
 	}
+	
+	
+	
+	
+	//different Screens
 	public static void screenOne(){
 		ScreenOne screenOne = new ScreenOne();
 	}
+	
+	public static void screenTwo(){
+		ScreenTwo screenTwo = new ScreenTwo();
+	}
+	
+	
 	
 	public static void mode(){
 		//Write the word mode

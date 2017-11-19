@@ -26,8 +26,7 @@ public class SnakeScreenTwo {
 							yPos--;
 						}
 						else if (yPos <= 0){
-							yPos = 5;
-							xPos = 5;
+							yPos = 11;
 						}
 						break;
 					case java.awt.event.KeyEvent.VK_DOWN:
@@ -35,8 +34,7 @@ public class SnakeScreenTwo {
 							yPos++;
 						}
 						else if (yPos >= 11){
-							yPos = 5;
-							xPos = 5;
+							yPos = 0;
 						}
 						break;
 					case java.awt.event.KeyEvent.VK_LEFT:
@@ -44,8 +42,7 @@ public class SnakeScreenTwo {
 							xPos--;
 						}
 						else if (xPos <= 0){
-							yPos = 5;
-							xPos = 5;
+							xPos = 11;
 						}
 						break;
 					case java.awt.event.KeyEvent.VK_RIGHT:
@@ -53,8 +50,7 @@ public class SnakeScreenTwo {
 							xPos++;
 						}
 						else if (xPos >= 11){
-							yPos = 5;
-							xPos = 5;
+							xPos = 0;
 						}
 						break;
 					default:
