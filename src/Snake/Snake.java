@@ -153,7 +153,7 @@ public class Snake {
 			controller.setColor(i, 11, 127, 0, 0);
 			i++;
 		}
-		ScreenOne.foodOne();
+		ScreenOne.foodOne(); //solve problem of infinity food spawning
 	}
 	
 	public void resetSnakeTwo() {
