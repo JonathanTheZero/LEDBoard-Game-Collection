@@ -13,6 +13,7 @@ public class Board {
 	static BoardController controller = BoardController.getBoardController();
 	public static KeyBuffer		buffer;
 	public static boolean startScreen = true;
+	public static int screen = 0;
 	
 	public static void main(String[] args) {
 		buffer = controller.getKeyBuffer();
@@ -36,6 +37,7 @@ public class Board {
 							screenOne();
 							controller.updateLedStripe();
 							startScreen = false;
+							screen = 1;
 							break;
 						case java.awt.event.KeyEvent.VK_2:
 							controller.resetColors();
@@ -44,6 +46,7 @@ public class Board {
 							screenTwo();
 							controller.updateLedStripe();
 							startScreen = false;
+							screen = 2;
 							break;
 						default:
 					}
