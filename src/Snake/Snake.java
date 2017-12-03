@@ -57,15 +57,26 @@ public class Snake {
 			}
 			break;
 		}
+		eatAppleOne();
 	}
-	
+
 	public void setDirection(char direction) {
 		this.direction = direction;
 		System.out.println(direction);
 	}
 	//create new apples
 	public void createNewAppleOne() {
+		
 	}
 	
+	public void eatAppleOne(){
+		if(xPos == ScreenOne.xPosA && yPos == ScreenOne.yPosA){
+			
+		}
+	}
+	
+	public void createTail(){
+		controller.setColor(0, 0, 10, 100, 15);
+	}
 
 }
