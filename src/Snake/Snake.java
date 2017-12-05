@@ -64,13 +64,15 @@ public class Snake {
 		this.direction = direction;
 		System.out.println(direction);
 	}
+	
 	//create new apples
 	public void createNewAppleOne() {
 		
 	}
 	
+	
 	public void eatAppleOne(){
-		if(xPos == ScreenOne.xPosA && yPos == ScreenOne.yPosA){
+		if(xPos == ScreenOne.xPos && yPos == ScreenOne.yPos){
 			
 		}
 	}

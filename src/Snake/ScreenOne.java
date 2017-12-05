@@ -10,14 +10,22 @@ public class ScreenOne {
 	
 	static BoardController controller = BoardController.getBoardController();
 	private static KeyBuffer buffer;
-	static int xPosA;
-	static int yPosA;
+	static int xPos;
+	static int yPos;
 	private Snake snake;
 	
 	public ScreenOne(){
 		buffer = controller.getKeyBuffer();
 		snake = new Snake();
-		//Screen border
+		
+		drawStartAnimation();
+		
+		drawScreen();
+		controller.updateLedStripe();
+	}
+	
+	public void drawStartAnimation() {
+		//Screen start animation
 		int i = 0;
 		while (i <= 11) {
 			controller.setColor(0, i, 127, 0, 0);
@@ -45,8 +53,6 @@ public class ScreenOne {
 			i++;
 		}
 		
-		drawScreen();
-		controller.updateLedStripe();
 	}
 	
 	public void createApple(){
@@ -54,11 +60,11 @@ public class ScreenOne {
 		int max = 10;
 		Random ranFood = new Random();
 		
-		xPosA = min + ranFood.nextInt(max);
-		yPosA = min + ranFood.nextInt(max);
+		xPos = min + ranFood.nextInt(max);
+		yPos = min + ranFood.nextInt(max);
 	}
 	public void drawApple() {
-		controller.setColor(xPosA, yPosA, 0, 0, 127);
+		controller.setColor(xPos, yPos, 0, 0, 127);
 	}
 	public void drawScreen() {
 		createApple();
@@ -68,7 +74,7 @@ public class ScreenOne {
 			snake.move();
 			drawApple();
 			snake.draw();
-			controller.sleep(150);
+			controller.sleep(170);
 			controller.updateLedStripe();
 			
 		}
@@ -81,7 +87,6 @@ public class ScreenOne {
 					switch(event.getKeyCode()) {
 					case KeyEvent.VK_UP:
 						snake.setDirection('U');
-						//System.out.println("ABCDEFGHIJKLMNOP");
 						break;
 					case KeyEvent.VK_DOWN:
 						snake.setDirection('D');

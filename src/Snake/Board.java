@@ -23,7 +23,7 @@ public class Board {
 	
 	
 	public static void startScreen(){
-		mode();
+		writeMode();
 		controller.updateLedStripe();
 		while (startScreen = true){
 			KeyEvent event = buffer.pop();
@@ -69,8 +69,15 @@ public class Board {
 	
 	
 	
-	public static void mode(){
+	public static void writeMode(){
 		//Write the word mode
+		writeM();
+		writeO();
+		writeD();
+		writeE();
+	}
+	
+	public static void writeM() {
 		
 		//M
 		controller.setColor(0, 5, 0, 127, 0);
@@ -90,6 +97,9 @@ public class Board {
 		controller.setColor(4, 3, 0, 127, 0);
 		controller.setColor(4, 4, 0, 127, 0);
 		controller.setColor(4, 5, 0, 127, 0);
+	}
+	
+	public static void writeO() {
 		
 		//O
 		controller.setColor(7, 1, 0, 127, 0);
@@ -106,6 +116,9 @@ public class Board {
 		controller.setColor(9, 4, 0, 127, 0);
 		controller.setColor(9, 5, 0, 127, 0);
 		controller.setColor(8, 5, 0, 127, 0);
+	}
+	
+	public static void writeD() {
 		
 		//D
 		controller.setColor(1, 7, 0, 127, 0);
@@ -120,7 +133,9 @@ public class Board {
 		controller.setColor(3, 9, 0, 127, 0);
 		controller.setColor(3, 10, 0, 127, 0);
 		controller.setColor(2, 11, 0, 127, 0);
-		
+	}
+	
+	public static void writeE() {
 		//E
 		controller.setColor(6, 7, 0, 127, 0);
 		controller.setColor(7, 7, 0, 127, 0);
@@ -134,5 +149,5 @@ public class Board {
 		controller.setColor(7, 11, 0, 127, 0);
 		controller.setColor(8, 11, 0, 127, 0);
 	}
-
+	
 }
