@@ -17,6 +17,8 @@ public class Snake {
 	
 	
 	public Snake(){
+		controller = BoardController.getBoardController();
+		buffer = controller.getKeyBuffer();
 		direction = 'R';
 		xPos = 5;
 		yPos = 5;
@@ -24,11 +26,7 @@ public class Snake {
 	
 	
 	//for the different screens	
-	public void draw() {
-		controller = BoardController.getBoardController();
-		buffer = controller.getKeyBuffer();
-		
-		
+	public void draw() {		
 		controller.setColor(xPos, yPos, 10, 100, 15);
 	}
 	public void move() {
@@ -75,7 +73,7 @@ public class Snake {
 	public void eatAppleOne(){
 		if(xPos == ScreenOne.xPos && yPos == ScreenOne.yPos){
 			snakeLength++;
-			createTail();
+			
 		}
 		else {
 			
