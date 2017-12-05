@@ -28,6 +28,7 @@ public class Snake {
 		controller = BoardController.getBoardController();
 		buffer = controller.getKeyBuffer();
 		
+		
 		controller.setColor(xPos, yPos, 10, 100, 15);
 	}
 	public void move() {
@@ -73,12 +74,27 @@ public class Snake {
 	
 	public void eatAppleOne(){
 		if(xPos == ScreenOne.xPos && yPos == ScreenOne.yPos){
+			snakeLength++;
+			createTail();
+		}
+		else {
 			
 		}
 	}
 	
 	public void createTail(){
-		controller.setColor(0, 0, 10, 100, 15);
+		if(direction == 'R') {
+			//controller.setColor(xPos - 1, yPos, 10, 100, 15);
+		}
+		else if(direction == 'L') {
+			//controller.setColor(xPos + 1, yPos, 10, 100, 15);
+		}
+		else if(direction == 'U') {
+			//controller.setColor(xPos, yPos - 1, 10, 100, 15);
+		}
+		else if(direction == 'D') {
+			//controller.setColor(xPos, yPos + 1, 10, 100, 15);
+		}
 	}
 
 }

@@ -1,6 +1,7 @@
 package Snake;
 
 import ledControl.BoardController;
+import ledControl.LedConfiguration;
 import ledControl.gui.KeyBuffer;
 
 import Snake.ScreenOne;
@@ -23,6 +24,7 @@ public class Board {
 	
 	
 	public static void startScreen(){
+		//controller.addNetworkHost(ip:"132.252.250.93");
 		writeMode();
 		controller.updateLedStripe();
 		while (startScreen = true){
