@@ -7,6 +7,7 @@ import ledControl.BoardController;
 import ledControl.gui.KeyBuffer;
 
 import Snake.ScreenOne;
+import Snake.SnakeSegments;
 
 public class Snake {
 	private static BoardController	controller;
@@ -28,7 +29,9 @@ public class Snake {
 	//for the different screens	
 	public void draw() {		
 		controller.setColor(xPos, yPos, 10, 100, 15);
+		//drawSnakeSegments();
 	}
+	
 	public void move() {
 		switch(direction) {
 		case 'L':
@@ -73,7 +76,9 @@ public class Snake {
 	public void eatAppleOne(){
 		if(xPos == ScreenOne.xPos && yPos == ScreenOne.yPos){
 			snakeLength++;
-			
+			SnakeSegments seg1 = new SnakeSegments();
+			seg1.xPos = xPos - 1;
+			seg1.yPos = yPos;
 		}
 		else {
 			
@@ -94,5 +99,10 @@ public class Snake {
 			//controller.setColor(xPos, yPos + 1, 10, 100, 15);
 		}
 	}
+	
+	/*public void drawSnakeSegments(){
+		SnakeSegments seg1 = new SnakeSegments();
+		seg1.xPos = seg1.xPos - 1;
+	}*/
 
 }
