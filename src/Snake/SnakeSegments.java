@@ -7,10 +7,10 @@ public class SnakeSegments {
 	
 	
 	static BoardController controller = BoardController.getBoardController();
-	public int xPos;
-	public int yPos;
+	//public int xPos;
+	//public int yPos;
 	
-	public SnakeSegments(){
+	public SnakeSegments(int xPos, int yPos){
 		controller.setColor(xPos, yPos, 10, 100, 15);
 	}
 }

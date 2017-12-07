@@ -29,7 +29,7 @@ public class Snake {
 	//for the different screens	
 	public void draw() {		
 		controller.setColor(xPos, yPos, 10, 100, 15);
-		//drawSnakeSegments();
+		drawSnakeSegments(snakeLength);
 	}
 	
 	public void move() {
@@ -76,9 +76,10 @@ public class Snake {
 	public void eatAppleOne(){
 		if(xPos == ScreenOne.xPos && yPos == ScreenOne.yPos){
 			snakeLength++;
-			SnakeSegments seg1 = new SnakeSegments();
-			seg1.xPos = xPos - 1;
-			seg1.yPos = yPos;
+			//SnakeSegments seg1 = new SnakeSegments(Snake.xPos -1, Snake.yPos);
+			//seg1.xPos = Snake.xPos - 1;
+			//seg1.yPos = Snake.yPos;
+			createTail();
 		}
 		else {
 			
@@ -100,9 +101,11 @@ public class Snake {
 		}
 	}
 	
-	/*public void drawSnakeSegments(){
-		SnakeSegments seg1 = new SnakeSegments();
-		seg1.xPos = seg1.xPos - 1;
-	}*/
+	public void drawSnakeSegments(int segmentCount){
+		int i = 0;
+		while(i < segmentCount){
+			SnakeSegments seg1 = new SnakeSegments(Snake.xPos -1, Snake.yPos);
+		}
+	}
 
 }
