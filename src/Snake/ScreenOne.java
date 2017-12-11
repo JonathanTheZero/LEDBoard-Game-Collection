@@ -6,6 +6,8 @@ import ledControl.gui.KeyBuffer;
 import java.awt.event.KeyEvent;
 import java.util.Random;
 
+import Snake.Board;
+
 public class ScreenOne {
 	
 	static BoardController controller = BoardController.getBoardController();
@@ -103,5 +105,18 @@ public class ScreenOne {
 				//System.out.println(event.getKeyCode());
 			}
 			buffer.clear();
+	}
+	
+	public void end(){
+		controller.resetColors();
+		writeEnd();
+	}
+	
+	public void writeEnd(){
+		writeE();
+	}
+	
+	public void writeE(){
+		
 	}
 }

@@ -13,7 +13,7 @@ public class Snake {
 	private static BoardController	controller;
 	private static KeyBuffer		buffer;
 	private static int xPos, yPos;
-	int snakeLength = 1;
+	int snakeLength = 0;
 	private char direction;
 	
 	
@@ -104,7 +104,13 @@ public class Snake {
 	public void drawSnakeSegments(int segmentCount){
 		int i = 0;
 		while(i < segmentCount){
-			SnakeSegments seg1 = new SnakeSegments(Snake.xPos -1, Snake.yPos);
+			if(Snake.xPos - 1 <= 0 || Snake.yPos - 1 <= 0){
+				ScreenOne.end();
+			}
+			else{
+				new SnakeSegments(Snake.xPos -1, Snake.yPos);
+			}
+			i++;
 		}
 	}
 
