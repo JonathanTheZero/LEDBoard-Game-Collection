@@ -138,6 +138,7 @@ public class Board {
 	}
 	
 	public static void writeE() {
+		
 		//E
 		controller.setColor(6, 7, 0, 127, 0);
 		controller.setColor(7, 7, 0, 127, 0);

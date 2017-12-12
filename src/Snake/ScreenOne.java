@@ -78,7 +78,7 @@ public class ScreenOne {
 			snake.draw();
 			controller.sleep(170);
 			controller.updateLedStripe();
-			
+				
 		}
 	}
 	
@@ -107,16 +107,28 @@ public class ScreenOne {
 			buffer.clear();
 	}
 	
-	public void end(){
+	
+	
+	public static void end(){
 		controller.resetColors();
 		writeEnd();
 	}
 	
-	public void writeEnd(){
+	public static void writeEnd(){
 		writeE();
 	}
 	
-	public void writeE(){
-		
+	public static void writeE(){
+		controller.setColor(0, 1, 0, 127, 0);
+		controller.setColor(1, 1, 0, 127, 0);
+		controller.setColor(2, 1, 0, 127, 0);
+		controller.setColor(0, 2, 0, 127, 0);
+		controller.setColor(0, 3, 0, 127, 0);
+		controller.setColor(1, 3, 0, 127, 0);
+		controller.setColor(2, 3, 0, 127, 0);
+		controller.setColor(0, 4, 0, 127, 0);
+		controller.setColor(0, 5, 0, 127, 0);
+		controller.setColor(1, 5, 0, 127, 0);
+		controller.setColor(2, 5, 0, 127, 0);
 	}
 }

@@ -1,7 +1,10 @@
 package Snake;
 
 import java.awt.event.KeyEvent;
+
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 import ledControl.BoardController;
 import ledControl.gui.KeyBuffer;
@@ -12,10 +15,10 @@ import Snake.SnakeSegments;
 public class Snake {
 	private static BoardController	controller;
 	private static KeyBuffer		buffer;
-	private static int xPos, yPos;
+	private static int xPos = 5;
+	private static int yPos = 5;
 	int snakeLength = 0;
 	private char direction;
-	
 	
 	public Snake(){
 		controller = BoardController.getBoardController();
@@ -87,31 +90,55 @@ public class Snake {
 	}
 	
 	public void createTail(){
-		if(direction == 'R') {
-			//controller.setColor(xPos - 1, yPos, 10, 100, 15);
+		/*if(direction == 'R') {
+			controller.setColor(xPos - 1, yPos, 10, 100, 15);
 		}
 		else if(direction == 'L') {
-			//controller.setColor(xPos + 1, yPos, 10, 100, 15);
+			controller.setColor(xPos + 1, yPos, 10, 100, 15);
 		}
 		else if(direction == 'U') {
-			//controller.setColor(xPos, yPos - 1, 10, 100, 15);
+			controller.setColor(xPos, yPos - 1, 10, 100, 15);
 		}
 		else if(direction == 'D') {
-			//controller.setColor(xPos, yPos + 1, 10, 100, 15);
-		}
+			controller.setColor(xPos, yPos + 1, 10, 100, 15);
+		}*/
 	}
 	
 	public void drawSnakeSegments(int segmentCount){
+	    List<int[]> positionen = new ArrayList<int[]>(); 
+		positionen.add(new int[] {xPos, yPos});
+		
 		int i = 0;
 		while(i < segmentCount){
-			if(Snake.xPos - 1 <= 0 || Snake.yPos - 1 <= 0){
-				ScreenOne.end();
-			}
-			else{
-				new SnakeSegments(Snake.xPos -1, Snake.yPos);
-			}
+				if(direction == 'R') {
+					positionen.add(1, new int[] {xPos - 1, yPos});
+					if(xPos - 1 < 0){
+						positionen.get(1)[0] = 12;
+					}
+					else if( xPos + 1 > 12){
+						positionen.get(1)[0] = 0;
+					}
+					controller.setColor(positionen.get(1)[0], positionen.get(1)[1], 10, 100, 15);
+				}
+				else if(direction == 'L') {
+					controller.setColor(xPos + 1, yPos, 10, 100, 15);
+				}
+				else if(direction == 'U') {
+					controller.setColor(xPos, yPos - 1, 10, 100, 15);
+				}
+				else if(direction == 'D') {
+					controller.setColor(xPos, yPos + 1, 10, 100, 15);
+				}
+				
 			i++;
 		}
+	}
+	
+	public void segmentLocation(){
+	    /*System.out.println(positionen.get(0));
+	    positionen.add(0, new int[] {2,3});
+	    positionen.get(0)[0] = 42;
+	    positionen.remove(0);*/
 	}
 
 }
