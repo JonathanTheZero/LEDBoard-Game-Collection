@@ -17,6 +17,7 @@ public class Snake {
 	private static KeyBuffer		buffer;
 	private static int xPos = 5;
 	private static int yPos = 5;
+	public int count = 1;
 	int snakeLength = 0;
 	private char direction;
 	
@@ -71,8 +72,8 @@ public class Snake {
 	}
 	
 	//create new apples
-	public void createNewAppleOne() {
-		
+	public void createNewApple() {
+		ScreenOne.createApple();
 	}
 	
 	
@@ -82,7 +83,8 @@ public class Snake {
 			//SnakeSegments seg1 = new SnakeSegments(Snake.xPos -1, Snake.yPos);
 			//seg1.xPos = Snake.xPos - 1;
 			//seg1.yPos = Snake.yPos;
-			createTail();
+			controller.resetColors();
+			createNewApple();
 		}
 		else {
 			
@@ -115,19 +117,40 @@ public class Snake {
 					if(xPos - 1 < 0){
 						positionen.get(1)[0] = 12;
 					}
-					else if( xPos + 1 > 12){
+					else if(xPos + 1 > 12){
 						positionen.get(1)[0] = 0;
 					}
 					controller.setColor(positionen.get(1)[0], positionen.get(1)[1], 10, 100, 15);
 				}
 				else if(direction == 'L') {
-					controller.setColor(xPos + 1, yPos, 10, 100, 15);
+					positionen.add(1, new int[] {xPos + 1, yPos});
+					if(xPos + 1 < 0){
+						positionen.get(1)[0] = 12;
+					}
+					else if(xPos - 1 > 12){
+						positionen.get(1)[0] = 0;
+					}
+					controller.setColor(positionen.get(1)[0], positionen.get(1)[1], 10, 100, 15);
 				}
 				else if(direction == 'U') {
-					controller.setColor(xPos, yPos - 1, 10, 100, 15);
+					positionen.add(1, new int[] {xPos, yPos - 1});
+					if(yPos - 1 < 0){
+						positionen.get(1)[1] = 12;
+					}
+					else if(yPos + 1 > 12){
+						positionen.get(1)[1] = 0;
+					}
+					controller.setColor(positionen.get(1)[0], positionen.get(1)[1], 10, 100, 15);
 				}
 				else if(direction == 'D') {
-					controller.setColor(xPos, yPos + 1, 10, 100, 15);
+					positionen.add(1, new int[] {xPos, yPos + 1});
+					if(yPos - 1 < 0){
+						positionen.get(1)[1] = 12;
+					}
+					else if(yPos + 1 > 12){
+						positionen.get(1)[1] = 0;
+					}
+					controller.setColor(positionen.get(1)[0], positionen.get(1)[1], 10, 100, 15);
 				}
 				
 			i++;

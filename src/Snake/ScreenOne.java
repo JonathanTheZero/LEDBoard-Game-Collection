@@ -57,7 +57,7 @@ public class ScreenOne {
 		
 	}
 	
-	public void createApple(){
+	public static void createApple(){
 		int min = 1;
 		int max = 10;
 		Random ranFood = new Random();
