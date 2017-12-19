@@ -12,16 +12,18 @@ public class SnakeSegments {
 	
 	
 	static BoardController controller = BoardController.getBoardController();
-	public int xPos;
-	public int yPos;
+	public int count;
+	private int x;
+	private int y;
 	
-	public SnakeSegments(){
-	    List<int[]> positionen = new ArrayList<int[]>(); 
-		positionen.add(new int[] {xPos, yPos});
-		createBreakpoint(Snake.xPos, Snake.yPos);
-	}
-	
-	public void createBreakpoint(int xPos, int yPos) {
-		System.out.println(xPos + "..." + yPos);
+	public SnakeSegments(int x, int y){
+		
+		List<int[]> positionen = new ArrayList<int[]>(); 
+		positionen.add(count, new int[] {xPos, yPos});
+		
+		positionen.add(count, new int[] {x, y});
+		
+		controller.setColor(positionen.get(count)[0], positionen.get(count)[1], 10, 100, 15);
 	}
 }
+

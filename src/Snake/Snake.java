@@ -18,8 +18,11 @@ public class Snake {
 	public static int xPos = 5;
 	public static int yPos = 5;
 	public int count = 1;
+	public int segCount;
 	int snakeLength = 0;
 	private char direction;
+	
+	List<SnakeSegments> positionen = new ArrayList<SnakeSegments>(); 
 	
 	public Snake(){
 		controller = BoardController.getBoardController();
@@ -91,23 +94,16 @@ public class Snake {
 		}
 	}
 	
-	public void createTail(){
-		/*if(direction == 'R') {
-			controller.setColor(xPos - 1, yPos, 10, 100, 15);
+	public void drawSnakeSegments(){
+		if(direction == 'R') {
+			positionen.add(count, new int[] {xPos, yPos});
 		}
 		else if(direction == 'L') {
-			controller.setColor(xPos + 1, yPos, 10, 100, 15);
 		}
 		else if(direction == 'U') {
-			controller.setColor(xPos, yPos - 1, 10, 100, 15);
 		}
 		else if(direction == 'D') {
-			controller.setColor(xPos, yPos + 1, 10, 100, 15);
-		}*/
-	}
-	
-	public void drawSnakeSegments(int segmentCount){
-
+		}
 	}
 	
 	public void segmentLocation(){
@@ -124,3 +120,31 @@ public class Snake {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*if(direction == 'R') {
+	new SnakeSegments(xPos - 1, yPos, segCount);
+	segCount++;
+}
+else if(direction == 'L') {
+	new SnakeSegments(xPos + 1, yPos, segCount);
+	segCount++;
+}
+else if(direction == 'U') {
+	new SnakeSegments(xPos, yPos + 1, segCount);
+	segCount++;
+}
+else if(direction == 'D') {
+	new SnakeSegments(xPos, yPos - 1, segCount);
+	segCount++;
+}*/
