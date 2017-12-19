@@ -17,7 +17,7 @@ public class Snake {
 	private static KeyBuffer		buffer;
 	public static int xPos = 5;
 	public static int yPos = 5;
-	public int segCount;
+	public int count = 1;
 	int snakeLength = 0;
 	private char direction;
 	
@@ -65,7 +65,7 @@ public class Snake {
 			}
 			break;
 		}
-		eatAppleOne();
+		eatApple();
 	}
 
 	public void setDirection(char direction) {
@@ -79,7 +79,7 @@ public class Snake {
 	}
 	
 	
-	public void eatAppleOne(){
+	public void eatApple(){
 		if(xPos == Screen.xPos && yPos == Screen.yPos){
 			snakeLength++;
 			//SnakeSegments seg1 = new SnakeSegments(Snake.xPos -1, Snake.yPos);
@@ -87,21 +87,29 @@ public class Snake {
 			//seg1.yPos = Snake.yPos;
 			controller.resetColors();
 			createNewApple();
+			createSegments();
 		}
 		else {
 			
 		}
 	}
 	
-	public void drawSnakeSegments(){
+	public void createSegments(){
 		if(direction == 'R') {
-			positionen.add(new SnakeSegment(8, 8));
+			positionen.add(new SnakeSegment(xPos - count, yPos));
+			count++;
 		}
 		else if(direction == 'L') {
+			positionen.add(new SnakeSegment(xPos + count, yPos));
+			count++;
 		}
 		else if(direction == 'U') {
+			positionen.add(new SnakeSegment(xPos, yPos - count));
+			count++;
 		}
 		else if(direction == 'D') {
+			positionen.add(new SnakeSegment(xPos, yPos+ count));
+			count++;
 		}
 	}
 	
@@ -117,5 +125,8 @@ public class Snake {
 			
 		}
 	}
-
+	
+	public void drawSegments() {
+		controller.setColor(positionen.get(1)[0]);
+	}
 }

@@ -17,7 +17,7 @@ public class SnakeSegment {
 	private int y;
 	
 	public SnakeSegment(int x, int y){
-		controller.setColor(x, y, 10, 100, 15);
+		Snake.drawSegments();
 	}
 }
 

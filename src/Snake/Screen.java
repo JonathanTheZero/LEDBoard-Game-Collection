@@ -78,7 +78,7 @@ public class Screen {
 			snake.draw();
 			controller.sleep(170);
 			controller.updateLedStripe();
-				
+			Snake.drawSegments();
 		}
 	}
 	
