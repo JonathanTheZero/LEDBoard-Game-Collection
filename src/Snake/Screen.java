@@ -8,7 +8,7 @@ import java.util.Random;
 
 import Snake.Board;
 
-public class ScreenOne {
+public class Screen {
 	
 	static BoardController controller = BoardController.getBoardController();
 	private static KeyBuffer buffer;
@@ -16,7 +16,7 @@ public class ScreenOne {
 	static int yPos;
 	private Snake snake;
 	
-	public ScreenOne(){
+	public Screen(){
 		buffer = controller.getKeyBuffer();
 		snake = new Snake();
 		

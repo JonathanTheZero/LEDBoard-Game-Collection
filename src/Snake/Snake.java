@@ -9,14 +9,14 @@ import java.util.List;
 import ledControl.BoardController;
 import ledControl.gui.KeyBuffer;
 
-import Snake.ScreenOne;
+import Snake.Screen;
 import Snake.SnakeSegments;
 
 public class Snake {
 	private static BoardController	controller;
 	private static KeyBuffer		buffer;
-	private static int xPos = 5;
-	private static int yPos = 5;
+	public static int xPos = 5;
+	public static int yPos = 5;
 	public int count = 1;
 	int snakeLength = 0;
 	private char direction;
@@ -33,7 +33,7 @@ public class Snake {
 	//for the different screens	
 	public void draw() {		
 		controller.setColor(xPos, yPos, 10, 100, 15);
-		drawSnakeSegments(snakeLength);
+		//drawSnakeSegments(snakeLength);
 	}
 	
 	public void move() {
@@ -73,12 +73,12 @@ public class Snake {
 	
 	//create new apples
 	public void createNewApple() {
-		ScreenOne.createApple();
+		Screen.createApple();
 	}
 	
 	
 	public void eatAppleOne(){
-		if(xPos == ScreenOne.xPos && yPos == ScreenOne.yPos){
+		if(xPos == Screen.xPos && yPos == Screen.yPos){
 			snakeLength++;
 			//SnakeSegments seg1 = new SnakeSegments(Snake.xPos -1, Snake.yPos);
 			//seg1.xPos = Snake.xPos - 1;
@@ -107,54 +107,7 @@ public class Snake {
 	}
 	
 	public void drawSnakeSegments(int segmentCount){
-	    List<int[]> positionen = new ArrayList<int[]>(); 
-		positionen.add(new int[] {xPos, yPos});
-		
-		int i = 0;
-		while(i < segmentCount){
-				if(direction == 'R') {
-					positionen.add(1, new int[] {xPos - 1, yPos});
-					if(xPos - 1 < 0){
-						positionen.get(1)[0] = 12;
-					}
-					else if(xPos + 1 > 12){
-						positionen.get(1)[0] = 0;
-					}
-					controller.setColor(positionen.get(1)[0], positionen.get(1)[1], 10, 100, 15);
-				}
-				else if(direction == 'L') {
-					positionen.add(1, new int[] {xPos + 1, yPos});
-					if(xPos + 1 < 0){
-						positionen.get(1)[0] = 12;
-					}
-					else if(xPos - 1 > 12){
-						positionen.get(1)[0] = 0;
-					}
-					controller.setColor(positionen.get(1)[0], positionen.get(1)[1], 10, 100, 15);
-				}
-				else if(direction == 'U') {
-					positionen.add(1, new int[] {xPos, yPos - 1});
-					if(yPos - 1 < 0){
-						positionen.get(1)[1] = 12;
-					}
-					else if(yPos + 1 > 12){
-						positionen.get(1)[1] = 0;
-					}
-					controller.setColor(positionen.get(1)[0], positionen.get(1)[1], 10, 100, 15);
-				}
-				else if(direction == 'D') {
-					positionen.add(1, new int[] {xPos, yPos + 1});
-					if(yPos - 1 < 0){
-						positionen.get(1)[1] = 12;
-					}
-					else if(yPos + 1 > 12){
-						positionen.get(1)[1] = 0;
-					}
-					controller.setColor(positionen.get(1)[0], positionen.get(1)[1], 10, 100, 15);
-				}
-				
-			i++;
-		}
+
 	}
 	
 	public void segmentLocation(){
@@ -162,6 +115,12 @@ public class Snake {
 	    positionen.add(0, new int[] {2,3});
 	    positionen.get(0)[0] = 42;
 	    positionen.remove(0);*/
+	}
+	
+	public void end() {
+		if(xPos == 12) {
+			
+		}
 	}
 
 }

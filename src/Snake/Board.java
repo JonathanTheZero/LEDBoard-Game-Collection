@@ -4,7 +4,7 @@ import ledControl.BoardController;
 import ledControl.LedConfiguration;
 import ledControl.gui.KeyBuffer;
 
-import Snake.ScreenOne;
+import Snake.Screen;
 
 import java.awt.event.KeyEvent;
 
@@ -62,7 +62,7 @@ public class Board {
 	
 	//different Screens
 	public static void screenOne(){
-		ScreenOne screenOne = new ScreenOne();
+		Screen screenOne = new Screen();
 	}
 	
 	public static void screenTwo(){
