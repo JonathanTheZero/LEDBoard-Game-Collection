@@ -10,19 +10,18 @@ import ledControl.BoardController;
 import ledControl.gui.KeyBuffer;
 
 import Snake.Screen;
-import Snake.SnakeSegments;
+import Snake.SnakeSegment;
 
 public class Snake {
 	private static BoardController	controller;
 	private static KeyBuffer		buffer;
 	public static int xPos = 5;
 	public static int yPos = 5;
-	public int count = 1;
 	public int segCount;
 	int snakeLength = 0;
 	private char direction;
 	
-	List<SnakeSegments> positionen = new ArrayList<SnakeSegments>(); 
+	List<SnakeSegment> positionen = new ArrayList<SnakeSegment>(); 
 	
 	public Snake(){
 		controller = BoardController.getBoardController();
@@ -96,7 +95,7 @@ public class Snake {
 	
 	public void drawSnakeSegments(){
 		if(direction == 'R') {
-			positionen.add(count, new int[] {xPos, yPos});
+			positionen.add(new SnakeSegment(8, 8));
 		}
 		else if(direction == 'L') {
 		}
@@ -120,31 +119,3 @@ public class Snake {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/*if(direction == 'R') {
-	new SnakeSegments(xPos - 1, yPos, segCount);
-	segCount++;
-}
-else if(direction == 'L') {
-	new SnakeSegments(xPos + 1, yPos, segCount);
-	segCount++;
-}
-else if(direction == 'U') {
-	new SnakeSegments(xPos, yPos + 1, segCount);
-	segCount++;
-}
-else if(direction == 'D') {
-	new SnakeSegments(xPos, yPos - 1, segCount);
-	segCount++;
-}*/
