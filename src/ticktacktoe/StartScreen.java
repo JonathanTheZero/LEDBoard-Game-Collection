@@ -15,30 +15,49 @@ public class StartScreen {
 	public StartScreen(){
 		drawStart();
 		controller.updateLedStripe();
+		controller.sleep(1870);
+		controller.resetColors();
+		drawField();
+		controller.updateLedStripe();
 	}
 	
+	public void drawField(){
+		controller.setColor(3, 1, 100, 100, 100);
+		controller.setColor(3, 2, 100, 100, 100);
+		controller.setColor(3, 3, 100, 100, 100);
+		controller.setColor(3, 4, 100, 100, 100);
+		controller.setColor(3, 5, 100, 100, 100);
+		controller.setColor(3, 6, 100, 100, 100);
+		controller.setColor(3, 7, 100, 100, 100);
+		controller.setColor(3, 8, 100, 100, 100);
+		
+		
+		
+	}
+	
+	
+	
+	//draw Letters and Messages
 	public void drawStart(){
-		drawS();
+		drawS(0, 0);
 		drawT(4, 0);
 		drawA(0, 6);
 		drawR(4, 6);
 		drawT(7, 6);
-		controller.updateLedStripe();
 	}
 	
-	public void drawS(){
-		controller.setColor(0, 0, 105, 10, 15);
-		controller.setColor(1, 0, 105, 10, 15);
-		controller.setColor(2, 0, 105, 10, 15);
-		controller.setColor(0, 1, 105, 10, 15);
-		controller.setColor(0, 2, 105, 10, 15);
-		controller.setColor(1, 2, 105, 10, 15);
-		controller.setColor(2, 2, 105, 10, 15);
-		controller.setColor(2, 3, 105, 10, 15);
-		controller.setColor(2, 4, 105, 10, 15);
-		controller.setColor(1, 4, 105, 10, 15);
-		controller.setColor(0, 4, 105, 10, 15);
-		controller.updateLedStripe();
+	public void drawS(int x, int y){
+		controller.setColor(x, y, 105, 10, 15);
+		controller.setColor(x + 1, y, 105, 10, 15);
+		controller.setColor(x + 2, y, 105, 10, 15);
+		controller.setColor(x, y + 1, 105, 10, 15);
+		controller.setColor(x, y + 2, 105, 10, 15);
+		controller.setColor(x + 1, y + 2, 105, 10, 15);
+		controller.setColor(x + 2, y + 2, 105, 10, 15);
+		controller.setColor(x + 2, y + 3, 105, 10, 15);
+		controller.setColor(x + 2, y + 4, 105, 10, 15);
+		controller.setColor(x + 1, y + 4, 105, 10, 15);
+		controller.setColor(x, y + 4, 105, 10, 15);
 	}
 	
 	public void drawT(int x, int y){
