@@ -1,12 +1,15 @@
-package Snake;
+package menu;
 
 import ledControl.BoardController;
 import ledControl.LedConfiguration;
 import ledControl.gui.KeyBuffer;
 
 import Snake.ScreenOne;
+import Snake.ScreenTwo;
 
 import java.awt.event.KeyEvent;
+
+import ticktacktoe.StartScreen;
 
 
 public class Board {
@@ -45,7 +48,7 @@ public class Board {
 							controller.resetColors();
 							controller.updateLedStripe();
 							controller.sleep(500);
-							screenTwo();
+							ttt();
 							controller.updateLedStripe();
 							startScreen = false;
 							screen = 2;
@@ -69,6 +72,9 @@ public class Board {
 		ScreenTwo screenTwo = new ScreenTwo();
 	}
 	
+	public static void ttt(){
+		StartScreen ttt = new StartScreen();
+	}
 	
 	
 	public static void writeMode(){

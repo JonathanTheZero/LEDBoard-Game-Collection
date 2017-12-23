@@ -2,11 +2,10 @@ package Snake;
 
 import ledControl.BoardController;
 import ledControl.gui.KeyBuffer;
+import menu.Board;
 
 import java.awt.event.KeyEvent;
 import java.util.Random;
-
-import Snake.Board;
 
 public class ScreenOne {
 	
