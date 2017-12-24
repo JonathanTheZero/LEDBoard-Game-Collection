@@ -35,7 +35,7 @@ public class Board {
 			if (event != null){
 				if (event.getID() == java.awt.event.KeyEvent.KEY_PRESSED){
 					switch (event.getKeyCode()){
-						case java.awt.event.KeyEvent.VK_1:
+						case java.awt.event.KeyEvent.VK_S:
 							controller.resetColors();
 							controller.updateLedStripe();
 							controller.sleep(500);
@@ -44,7 +44,7 @@ public class Board {
 							startScreen = false;
 							screen = 1;
 							break;
-						case java.awt.event.KeyEvent.VK_2:
+						case java.awt.event.KeyEvent.VK_T:
 							controller.resetColors();
 							controller.updateLedStripe();
 							controller.sleep(500);
